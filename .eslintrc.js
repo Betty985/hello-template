@@ -28,5 +28,8 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-multiple-template-root': 'off',
     'space-before-function-paren': 'off',
+    'vue/comment-directive': 'off',
+    'no-undef': 'off',
+    'no-control-regex': 'off',
   },
 }

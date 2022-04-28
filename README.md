@@ -179,6 +179,74 @@ npm run prepare
 npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
 ```
 
+## lint-staged 自动修复格式错误
+
+只检查本次修改更新的代码，并在出现错误的时候，自动修复并且推送。
+在你本地 `commit` 之前，校验你提交的内容是否符合你本地配置的 `eslint`规则(这个见文档 ESLint，校验如果符合规则：则会提交成功。 如果不符合规则：它会自动执行 `eslint --fix` 尝试帮你自动修复，如果修复成功则会把修复好的代码提交，如果失败，则会提示错误，修好错误之后才允许提交代码。
+
+# webpack
+
+本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。
+
+```
+npm install --save-dev webpack
+mkdir webpack-demo && cd webpack-demo
+npm init -y
+npm install webpack webpack-cli --save-dev
+npx webpack --config webpack.config.js
+```
+
+webpack 与 style-loader 版本冲突  
+style-loader 降级
+
+```
+npm i  --save-dev style-loader  css-loader
+```
+
+在安装一个要打包到生产环境的安装包时，你应该使用 `npm install --save`，如果你在安装一个用于开发环境的安装包（例如，linter, 测试库等），你应该使用 `npm install --save-dev`。
+执行 npx webpack，会将我们的脚本作为入口起点，然后 输出 为 main.js。
+打包文件配置
+
+```js
+/* eslint-disable no-sparse-arrays */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-fallthrough */
+/* eslint-disable no-cond-assign */
+/* eslint-disable no-empty */
+/* eslint-disable no-useless-escape */
+/* eslint-disable no-extra-semi */
+```
+
+# npx
+
+npx 可以运行使用 Node.js 构建并通过 npm 仓库发布的代码。
+
+## 轻松地运行本地命令
+
+运行 npx commandname 会自动地在项目的 node_modules 文件夹中找到命令的正确引用，而无需知道确切的路径，也不需要在全局和用户路径中安装软件包。
+
+## 无需安装的命令执行
+
+npx 的另一个重要的特性是，无需先安装命令即可运行命令。
+不需要安装任何东西。
+可以使用 @version 语法运行同一命令的不同版本。
+
+## 使用不同的 Node.js 版本运行代码
+
+使用 @ 指定版本，并将其与 node npm 软件包 结合使用：
+
+```
+BASH
+npx node@10 -v #v10.18.1
+npx node@12 -v #v12.14.1
+```
+
+这有助于避免使用 nvm 之类的工具或其他 Node.js 版本管理工具。
+
+## 直接从 URL 运行任意代码片段
+
+npx 并不限制使用 npm 仓库上发布的软件包。
+
 # vscode
 
 alt+鼠标左键 选中多行同时编辑
@@ -193,3 +261,5 @@ alt+鼠标左键 选中多行同时编辑
 - [githooks](https://githooks.com/)
 - [多行光标](https://www.cnblogs.com/shidawang/p/12220767.html#)
 - [commitlint](https://commitlint.js.org/#/guides-upgrade)
+- [webpack](https://www.webpackjs.com/concepts/)
+- [node.js](http://nodejs.cn/learn/the-npx-nodejs-package-runner)
